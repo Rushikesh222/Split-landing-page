@@ -1,17 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubunta");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 :root {
   --left-bg-color: rgba(87, 84, 236, 0.7);
   --right-bg-color: rgba(43, 43, 43, 0.7);
   --left-btn-hover-color: rgb(229, 229, 238);
   --right-btn-hover-color: rgb(91, 156, 73);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
 }
 
 * {
   box-sizing: border-box;
 }
 body {
-  font-family: "Ubunta", sans-serif;
+  font-family: "Lato", sans-serif;
   height: 100vh;
   overflow: hidden;
   margin: 0;
@@ -87,4 +90,32 @@ h1 {
   width: 100%;
   height: 100%;
   background-color: var(--right-bg-color);
+}
+.split.left,
+.split.right,
+.split.left::before,
+.split.right::before {
+  transition: all var(--speed) ease-in-out;
+}
+.hover-left .left {
+  width: var(--hover-width);
+}
+.hover-left .right {
+  width: var(--other-width);
+}
+.hover-right .right {
+  width: var(--hover-width);
+}
+.hover-right .left {
+  width: var(--other-width);
+}
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2rem;
+    top: 30%;
+  }
+  .btn {
+    padding: 1.2rem;
+    width: 12rem;
+  }
 }
